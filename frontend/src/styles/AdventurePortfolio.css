@@ -1,104 +1,252 @@
-/* Adventure Portfolio Styles */
+/* Full Page Scroll Adventure Portfolio */
 
-.adventure-portfolio {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.adventure-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   position: relative;
-  width: 100%;
-  overflow-x: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: #0a0e1a;
   color: #fff;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 /* Progress Bar */
-.progress-bar {
+.page-progress {
   position: fixed;
-  top: 0;
-  left: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #ff6b35, #f7931e, #fbb034);
-  z-index: 1000;
-  transition: width 0.1s ease-out;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 100%;
+  background: linear-gradient(180deg, #ff6b35, #f7931e, #fbb034);
+  transition: height 0.8s ease;
   box-shadow: 0 0 20px rgba(255, 107, 53, 0.6);
 }
 
 /* Navigation Dots */
-.nav-dots {
+.nav-indicators {
   position: fixed;
   right: 30px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 100;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  z-index: 100;
 }
 
 .nav-dot {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  position: relative;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
-  opacity: 0.6;
+  padding: 0;
 }
 
 .nav-dot:hover {
-  opacity: 1;
-  transform: translateX(-5px);
+  transform: scale(1.3);
+  border-color: #ff6b35;
 }
 
 .nav-dot.active {
-  opacity: 1;
-  transform: scale(1.2);
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  border-color: #ff6b35;
+  box-shadow: 0 0 15px rgba(255, 107, 53, 0.8);
+  transform: scale(1.4);
 }
 
-.dot-icon {
-  font-size: 24px;
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+.dot-inner {
+  display: none;
 }
 
 .dot-label {
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 6px 12px;
+  border-radius: 20px;
   font-size: 12px;
-  font-weight: 600;
-  color: #fff;
-  opacity: 0;
-  transition: opacity 0.3s ease;
   white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-.nav-dot:hover .dot-label,
-.nav-dot.active .dot-label {
+.nav-dot:hover .dot-label {
   opacity: 1;
 }
 
-/* Adventure Sections */
-.adventure-section {
-  min-height: 100vh;
+/* Transition Character Animation */
+.transition-character {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  pointer-events: none;
+}
+
+.char-transition {
+  font-size: 150px;
+  filter: drop-shadow(0 10px 40px rgba(0, 0, 0, 0.8));
+}
+
+.snowboard-jump .char-transition {
+  animation: jumpSnowboard 1.2s ease-in-out;
+}
+
+.climb-up .char-transition {
+  animation: climbMotion 1.2s ease-in-out;
+}
+
+.raft-wave .char-transition {
+  animation: raftWave 1.2s ease-in-out;
+}
+
+.skydive-fall .char-transition {
+  animation: skydiveFall 1.2s ease-in-out;
+}
+
+.dive-deep .char-transition {
+  animation: divingDeep 1.2s ease-in-out;
+}
+
+.glide-soar .char-transition {
+  animation: glideSoar 1.2s ease-in-out;
+}
+
+.land-camp .char-transition {
+  animation: landingCamp 1.2s ease-in-out;
+}
+
+@keyframes jumpSnowboard {
+  0% { transform: translateY(0) rotate(0deg) scale(1); }
+  50% { transform: translateY(-200px) rotate(-45deg) scale(1.5); }
+  100% { transform: translateY(200px) rotate(-90deg) scale(0.5); opacity: 0; }
+}
+
+@keyframes climbMotion {
+  0% { transform: translateY(200px) scale(0.8); }
+  50% { transform: translateY(-100px) scale(1.2); }
+  100% { transform: translateY(-300px) scale(0.6); opacity: 0; }
+}
+
+@keyframes raftWave {
+  0% { transform: translateX(-100px) rotate(-20deg); }
+  50% { transform: translateX(100px) rotate(20deg) scale(1.3); }
+  100% { transform: translateX(300px) rotate(40deg) scale(0.7); opacity: 0; }
+}
+
+@keyframes skydiveFall {
+  0% { transform: translateY(-300px) scale(0.5); }
+  50% { transform: translateY(0) scale(1.2); }
+  100% { transform: translateY(300px) scale(0.8); opacity: 0; }
+}
+
+@keyframes divingDeep {
+  0% { transform: translateY(-200px) rotate(0deg); }
+  50% { transform: translateY(100px) rotate(180deg) scale(1.2); }
+  100% { transform: translateY(400px) rotate(360deg) scale(0.6); opacity: 0; }
+}
+
+@keyframes glideSoar {
+  0% { transform: translateX(-300px) translateY(-100px); }
+  50% { transform: translateX(0) translateY(-50px) scale(1.3); }
+  100% { transform: translateX(300px) translateY(0) scale(0.8); opacity: 0; }
+}
+
+@keyframes landingCamp {
+  0% { transform: translateY(-200px) scale(1.5); }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Page Wrapper */
+.page-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Page Base Styles */
+.page {
+  width: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 60px 20px;
   overflow: hidden;
+  padding: 40px;
 }
 
-/* Hero Section - Snowboarding */
-.hero-section {
+/* Scroll Hint */
+.scroll-hint {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  z-index: 50;
+}
+
+.scroll-icon {
+  animation: bounceScroll 2s infinite;
+}
+
+@keyframes bounceScroll {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* Hero Page */
+.hero-page {
   background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
-  position: relative;
+  flex-direction: column;
 }
 
-.hero-background {
+.hero-character-large {
+  font-size: 200px;
+  position: absolute;
+  top: 15%;
+  filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.6));
+}
+
+.mountain-scene {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
+  bottom: 0;
   left: 0;
-  z-index: 1;
-  overflow: hidden;
 }
 
-.mountain-layer {
+.mountain-bg {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -107,412 +255,270 @@
   clip-path: polygon(0 100%, 0 40%, 20% 60%, 40% 30%, 60% 50%, 80% 20%, 100% 40%, 100% 100%);
 }
 
-.mountain-layer.layer-2 {
+.mountain-bg.layer-2 {
   height: 50%;
   background: #141b26;
   opacity: 0.8;
   clip-path: polygon(0 100%, 0 50%, 15% 70%, 35% 40%, 55% 60%, 75% 30%, 90% 50%, 100% 100%);
 }
 
-.mountain-layer.layer-3 {
+.mountain-bg.layer-3 {
   height: 60%;
   background: #0d1218;
   opacity: 0.6;
   clip-path: polygon(0 100%, 0 60%, 25% 80%, 45% 50%, 65% 70%, 85% 40%, 100% 60%, 100% 100%);
 }
 
-.hero-content {
+.hero-content-center {
   position: relative;
   z-index: 10;
   text-align: center;
-  max-width: 900px;
+  margin-top: 300px;
 }
 
-.hero-character {
-  margin-bottom: 30px;
-  animation: float 3s ease-in-out infinite;
-}
-
-.character-silhouette {
-  font-size: 120px;
-  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
-  animation: rotate-slight 4s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes rotate-slight {
-  0%, 100% { transform: rotate(-5deg); }
-  50% { transform: rotate(5deg); }
-}
-
-.hero-title {
+.name-title {
   font-size: 4rem;
   font-weight: 800;
-  margin: 0;
   background: linear-gradient(135deg, #fff 0%, #a8c0ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  letter-spacing: -1px;
+  margin-bottom: 20px;
 }
 
-.hero-subtitle {
+.role-subtitle {
   font-size: 1.5rem;
-  margin: 20px 0;
   color: #e0e7ff;
-  font-weight: 400;
+  margin-bottom: 20px;
 }
 
-.hero-location {
-  display: flex;
+.location-tag {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
   color: #cbd5e1;
-  font-size: 1.1rem;
-  margin-top: 20px;
-}
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  color: #fff;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-.scroll-indicator .bounce {
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(10px); }
-}
-
-/* Animations */
-.animate-slide-up {
-  animation: slideUp 1s ease-out forwards;
-  opacity: 0;
-}
-
-.animate-slide-up.delay-1 {
-  animation-delay: 0.2s;
-}
-
-.animate-slide-up.delay-2 {
-  animation-delay: 0.4s;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* About Section - Mountain Climbing */
-.about-section {
-  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-  position: relative;
-}
-
-.about-section::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,300 Q300,100 600,300 T1200,300 L1200,600 L0,600 Z" fill="rgba(26,35,50,0.3)"/></svg>');
-  background-size: cover;
-  opacity: 0.5;
-}
-
-.section-content {
-  position: relative;
-  z-index: 10;
-  max-width: 1200px;
-  width: 100%;
-}
-
-.section-character {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.section-character.climbing .character-silhouette {
-  font-size: 100px;
-  animation: climb 4s ease-in-out infinite;
-}
-
-@keyframes climb {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-30px) rotate(10deg); }
-}
-
-.content-card {
-  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.section-title {
-  font-size: 3rem;
+/* About Page */
+.about-page {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.page-character {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  font-size: 120px;
+  filter: drop-shadow(0 10px 40px rgba(0, 0, 0, 0.5));
+}
+
+.content-box {
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  padding: 50px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.page-title {
+  font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 20px;
-  text-align: center;
   color: #fff;
 }
 
-.about-text {
-  font-size: 1.2rem;
+.page-description {
+  font-size: 1.1rem;
   line-height: 1.8;
   color: #cbd5e1;
   margin-bottom: 30px;
-  text-align: left;
 }
 
-.contact-links {
+.quick-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 30px;
+  gap: 15px;
 }
 
-.contact-link {
+.quick-link {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 24px;
+  gap: 8px;
+  padding: 12px 20px;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 30px;
+  border-radius: 25px;
   color: #fff;
   text-decoration: none;
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.contact-link:hover {
-  background: rgba(255, 255, 255, 0.2);
+.quick-link:hover {
+  background: rgba(255, 107, 53, 0.3);
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
 }
 
-/* Skills Section - Rafting */
-.skills-section {
+/* Skills Page */
+.skills-page {
   background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
 }
 
-.section-character.rafting .character-silhouette {
-  font-size: 100px;
-  animation: raft 3s ease-in-out infinite;
-}
-
-@keyframes raft {
-  0%, 100% { transform: translateX(0) rotate(-5deg); }
-  50% { transform: translateX(20px) rotate(5deg); }
-}
-
-.section-subtitle {
-  text-align: center;
-  font-size: 1.3rem;
-  color: #94a3b8;
-  margin-bottom: 50px;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.skill-category {
+.content-box-wide {
+  max-width: 1000px;
+  width: 100%;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  padding: 30px;
-  border-radius: 16px;
+  backdrop-filter: blur(20px);
+  padding: 50px;
+  border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
 }
 
-.skill-category:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+.page-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #94a3b8;
+  margin-bottom: 40px;
 }
 
-.skill-category-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 20px;
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.skill-group h3 {
+  font-size: 1.3rem;
   color: #f7931e;
+  margin-bottom: 15px;
 }
 
-.skill-tags {
+.skill-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.skill-tag {
-  padding: 8px 16px;
+.skill-pill {
+  padding: 10px 18px;
   background: rgba(255, 107, 53, 0.2);
   border: 1px solid rgba(255, 107, 53, 0.4);
   border-radius: 20px;
-  font-size: 0.9rem;
   color: #fbb034;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
 }
 
-.skill-tag:hover {
+.skill-pill:hover {
   background: rgba(255, 107, 53, 0.4);
-  transform: scale(1.05);
+  transform: translateY(-3px);
 }
 
-/* Experience Section - Skydiving */
-.experience-section {
+/* Experience Page */
+.experience-page {
   background: linear-gradient(135deg, #141e30 0%, #243b55 100%);
 }
 
-.section-character.skydiving .character-silhouette {
-  font-size: 100px;
-  animation: skydive 3s ease-in-out infinite;
-}
-
-@keyframes skydive {
-  0% { transform: translateY(-50px) scale(0.8); }
-  50% { transform: translateY(0) scale(1); }
-  100% { transform: translateY(-50px) scale(0.8); }
-}
-
-.timeline {
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   position: relative;
-  max-width: 900px;
-  margin: 50px auto;
+  padding-left: 40px;
 }
 
-.timeline::before {
+.experience-timeline::before {
   content: '';
   position: absolute;
-  left: 30px;
+  left: 10px;
   top: 0;
   bottom: 0;
-  width: 4px;
+  width: 3px;
   background: linear-gradient(180deg, #ff6b35, #f7931e);
 }
 
-.timeline-item {
+.exp-item {
   position: relative;
-  padding-left: 80px;
-  margin-bottom: 50px;
 }
 
-.timeline-dot {
+.exp-marker {
   position: absolute;
-  left: 18px;
-  top: 0;
-  width: 28px;
-  height: 28px;
+  left: -34px;
+  top: 8px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background: linear-gradient(135deg, #ff6b35, #f7931e);
   border: 4px solid #141e30;
-  box-shadow: 0 0 20px rgba(255, 107, 53, 0.6);
+  box-shadow: 0 0 15px rgba(255, 107, 53, 0.6);
 }
 
-.timeline-content {
+.exp-content {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  padding: 30px;
+  padding: 25px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease;
 }
 
-.timeline-content:hover {
-  transform: translateX(10px);
-}
-
-.timeline-title {
-  font-size: 1.5rem;
-  font-weight: 600;
+.exp-content h3 {
+  font-size: 1.4rem;
   color: #fff;
   margin-bottom: 8px;
 }
 
-.timeline-company {
-  font-size: 1.1rem;
+.exp-company {
   color: #f7931e;
+  font-size: 1.1rem;
   margin-bottom: 5px;
 }
 
-.timeline-date {
-  font-size: 0.95rem;
+.exp-date {
   color: #94a3b8;
+  font-size: 0.95rem;
   margin-bottom: 15px;
 }
 
-.timeline-description {
+.exp-content ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-.timeline-description li {
-  padding-left: 25px;
-  margin-bottom: 10px;
-  position: relative;
+.exp-content li {
   color: #cbd5e1;
-  line-height: 1.6;
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
 }
 
-.timeline-description li::before {
+.exp-content li::before {
   content: '▸';
   position: absolute;
   left: 0;
   color: #f7931e;
 }
 
-/* Projects Section - Scuba Diving */
-.projects-section {
+/* Projects Page */
+.projects-page {
   background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
-}
-
-.section-character.diving .character-silhouette {
-  font-size: 100px;
-  animation: dive 4s ease-in-out infinite;
-}
-
-@keyframes dive {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(30px) rotate(-10deg); }
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
 }
 
-.project-card {
+.project-item {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
   padding: 30px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -520,194 +526,130 @@
   cursor: pointer;
 }
 
-.project-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+.project-item:hover {
   border-color: rgba(255, 107, 53, 0.5);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
-.project-title {
-  font-size: 1.4rem;
-  font-weight: 600;
+.project-item h3 {
+  font-size: 1.3rem;
   color: #fff;
+  margin-bottom: 12px;
+}
+
+.project-item p {
+  color: #94a3b8;
+  line-height: 1.6;
   margin-bottom: 15px;
 }
 
-.project-description {
-  color: #94a3b8;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  font-size: 1rem;
-}
-
-.project-tags {
+.tag-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
-.project-tag {
-  padding: 6px 14px;
+.tag {
+  padding: 5px 12px;
   background: rgba(59, 130, 246, 0.2);
   border: 1px solid rgba(59, 130, 246, 0.4);
-  border-radius: 16px;
+  border-radius: 14px;
   font-size: 0.85rem;
   color: #60a5fa;
 }
 
-/* Education Section - Paragliding */
-.education-section {
+/* Education Page */
+.education-page {
   background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
 }
 
-.section-character.paragliding .character-silhouette {
-  font-size: 100px;
-  animation: glide 5s ease-in-out infinite;
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 40px;
 }
 
-@keyframes glide {
-  0%, 100% { transform: translateX(-30px) translateY(0); }
-  50% { transform: translateX(30px) translateY(-20px); }
-}
-
-.education-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 30px;
-  margin: 50px 0;
-}
-
-.education-card {
+.edu-item {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  padding: 40px;
+  padding: 30px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease;
 }
 
-.education-card:hover {
-  transform: scale(1.05);
-}
-
-.education-title {
-  font-size: 1.6rem;
-  font-weight: 600;
+.edu-item h3 {
+  font-size: 1.5rem;
   color: #fff;
   margin-bottom: 10px;
 }
 
-.education-school {
-  font-size: 1.2rem;
+.edu-school {
   color: #f7931e;
-  margin-bottom: 8px;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
 }
 
-.education-date {
-  font-size: 1rem;
+.edu-date {
   color: #94a3b8;
-  margin-bottom: 15px;
+  font-size: 0.95rem;
 }
 
-.education-courses {
-  color: #cbd5e1;
-  line-height: 1.6;
-  font-size: 1rem;
-}
-
-.certifications {
-  margin-top: 50px;
-}
-
-.certifications-title {
-  font-size: 2rem;
-  font-weight: 600;
+.cert-heading {
+  font-size: 1.8rem;
   color: #fff;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.cert-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.cert-item {
+.cert-badge {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  padding: 20px 30px;
+  padding: 15px 25px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: #cbd5e1;
-  font-size: 1.1rem;
+  margin-bottom: 10px;
   transition: all 0.3s ease;
 }
 
-.cert-item:hover {
+.cert-badge:hover {
   background: rgba(255, 255, 255, 0.1);
   transform: translateX(10px);
 }
 
-/* Contact Section - Base Camp */
-.contact-section {
+/* Contact Page */
+.contact-page {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 }
 
-.section-character.basecamp .character-silhouette {
-  font-size: 100px;
-  animation: campfire 2s ease-in-out infinite;
-}
-
-@keyframes campfire {
-  0%, 100% { filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.8)); }
-  50% { filter: drop-shadow(0 0 40px rgba(247, 147, 30, 1)); }
-}
-
-.contact-container {
+.contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  max-width: 1000px;
-  margin: 50px auto;
+  gap: 40px;
+  margin-top: 30px;
 }
 
-.contact-info h3 {
-  font-size: 2rem;
-  font-weight: 600;
+.contact-info-box h3 {
+  font-size: 1.8rem;
   color: #fff;
   margin-bottom: 20px;
 }
 
-.contact-info p {
-  color: #94a3b8;
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-}
-
-.contact-details {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-bottom: 40px;
-}
-
-.contact-detail-item {
+.contact-detail {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
   color: #cbd5e1;
+  margin-bottom: 15px;
   font-size: 1rem;
 }
 
-.social-links {
+.social-icons {
   display: flex;
-  gap: 20px;
+  gap: 15px;
+  margin-top: 25px;
 }
 
-.social-link {
+.social-icons a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -720,20 +662,19 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.social-link:hover {
+.social-icons a:hover {
   background: rgba(255, 107, 53, 0.3);
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
 }
 
-.contact-form {
+.contact-form-box {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
-.form-input,
-.form-textarea {
+.form-field {
   padding: 15px 20px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -744,20 +685,18 @@
   transition: all 0.3s ease;
 }
 
-.form-input:focus,
-.form-textarea:focus {
+.form-field:focus {
   outline: none;
   border-color: #ff6b35;
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
 }
 
-.form-input::placeholder,
-.form-textarea::placeholder {
+.form-field::placeholder {
   color: #64748b;
 }
 
-.form-button {
+.submit-btn {
   padding: 15px 30px;
   background: linear-gradient(135deg, #ff6b35, #f7931e);
   border: none;
@@ -770,64 +709,47 @@
   box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
 }
 
-.form-button:hover {
+.submit-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
 }
 
-/* Footer */
-.portfolio-footer {
-  padding: 30px;
-  text-align: center;
-  background: #0a0e1a;
-  color: #64748b;
-  font-size: 0.95rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
-  .hero-title {
+  .name-title {
     font-size: 2.5rem;
   }
   
-  .hero-subtitle {
+  .role-subtitle {
     font-size: 1.2rem;
   }
   
-  .section-title {
-    font-size: 2rem;
+  .hero-character-large {
+    font-size: 120px;
   }
   
-  .nav-dots {
-    right: 10px;
+  .page-character {
+    font-size: 80px;
   }
   
-  .dot-label {
-    display: none;
+  .content-box,
+  .content-box-wide {
+    padding: 30px;
   }
   
-  .contact-container {
+  .contact-grid {
     grid-template-columns: 1fr;
   }
   
-  .education-grid {
+  .projects-grid {
     grid-template-columns: 1fr;
   }
   
-  .timeline::before {
+  .nav-indicators {
+    right: 15px;
+  }
+  
+  .page-progress {
     left: 15px;
-  }
-  
-  .timeline-item {
-    padding-left: 50px;
-  }
-  
-  .timeline-dot {
-    left: 3px;
-  }
-  
-  .content-card {
-    padding: 30px 20px;
   }
 }
