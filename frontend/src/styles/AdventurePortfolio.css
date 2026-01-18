@@ -850,28 +850,6 @@
   font-style: italic;
 }
 
-.social-button {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 15px 30px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 30px;
-  color: #fff;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
-.social-button:hover {
-  background: rgba(255, 107, 53, 0.3);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
-  border-color: #ff6b35;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
   .name-title {
