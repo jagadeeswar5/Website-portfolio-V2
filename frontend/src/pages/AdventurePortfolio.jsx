@@ -215,7 +215,7 @@ const HeroPage = () => (
       <p className="role-subtitle">Software Developer | AI Enthusiast | Full-Stack Engineer</p>
       <div className="location-tag">
         <MapPin size={18} />
-        <span>Sacramento, CA</span>
+        <span>Dublin, CA</span>
       </div>
     </motion.div>
   </div>
