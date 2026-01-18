@@ -433,6 +433,30 @@
   gap: 30px;
   position: relative;
   padding-left: 40px;
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 15px;
+}
+
+/* Custom Scrollbar for Experience Timeline */
+.experience-timeline::-webkit-scrollbar {
+  width: 8px;
+}
+
+.experience-timeline::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.experience-timeline::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff6b35, #f7931e);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+}
+
+.experience-timeline::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #f7931e, #fbb034);
 }
 
 .experience-timeline::before {
