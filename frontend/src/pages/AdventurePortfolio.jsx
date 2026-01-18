@@ -339,17 +339,36 @@ const ExperiencePage = () => (
         <motion.div className="exp-item" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }}>
           <div className="exp-marker"></div>
           <div className="exp-content">
-            <h3>Research Assistant</h3>
-            <p className="exp-company">California State University, Sacramento</p>
-            <p className="exp-date">2024 - Present</p>
+            <h3>Software Dev Intern</h3>
+            <p className="exp-company">Critical River Inc</p>
+            <p className="exp-date">Jul - Dec 2024</p>
             <ul>
-              <li>Conducting research in HLB disease modeling using C++ and RStudio</li>
-              <li>Developed ML models for predictive analysis</li>
-              <li>Built scalable data pipelines for large datasets</li>
+              <li><strong>Templates Manager Service:</strong> Developed FastAPI microservice for template management with async PostgreSQL, improving performance and scalability</li>
+              <li>Built cloud storage integration and data processing capabilities for handling large datasets</li>
+              <li>Implemented background task processing to optimize API response times</li>
+              <li><strong>P2P Dashboard Backend:</strong> Built FastAPI microservice integrating multiple procurement systems with dual-database architecture supporting high concurrency</li>
+              <li>Implemented OAuth 2.0 authentication with JWT and RBAC, plus search functionality with caching for fast response times</li>
+              <li>Developed notification system and analytics APIs for real-time financial metrics and transaction tracking</li>
+              <li><strong>Jira Dashboard API Service:</strong> Developed FastAPI service for issue analytics processing large datasets from data warehouse, with optimized filtering architecture</li>
+              <li>Upgraded service infrastructure and implemented robust query service with fault tolerance patterns for high availability</li>
             </ul>
           </div>
         </motion.div>
         <motion.div className="exp-item" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.7 }}>
+          <div className="exp-marker"></div>
+          <div className="exp-content">
+            <h3>Research Assistant</h3>
+            <p className="exp-company">California State University, Sacramento</p>
+            <p className="exp-date">2024 - Present</p>
+            <ul>
+              <li>Conducting research in HLB disease modeling using C++ models and RStudio</li>
+              <li>Developed ML models for predictive analysis and automation</li>
+              <li>Built scalable data pipelines for large datasets</li>
+              <li>Optimized computational efficiency using parallel processing</li>
+            </ul>
+          </div>
+        </motion.div>
+        <motion.div className="exp-item" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8 }}>
           <div className="exp-marker"></div>
           <div className="exp-content">
             <h3>Teaching Assistant</h3>
@@ -357,11 +376,12 @@ const ExperiencePage = () => (
             <p className="exp-date">2024 - Present</p>
             <ul>
               <li>Taught Java and algorithms to undergraduate students</li>
-              <li>Conducted lab sessions and developed teaching materials</li>
+              <li>Assisted students in core programming concepts</li>
+              <li>Conducted lab sessions and developed supplementary teaching materials</li>
             </ul>
           </div>
         </motion.div>
-        <motion.div className="exp-item" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8 }}>
+        <motion.div className="exp-item" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.9 }}>
           <div className="exp-marker"></div>
           <div className="exp-content">
             <h3>Web Development Intern</h3>
@@ -369,7 +389,8 @@ const ExperiencePage = () => (
             <p className="exp-date">2023</p>
             <ul>
               <li>Developed e-commerce platforms using React.js and Node.js</li>
-              <li>Reduced page load times by 40% through API optimization</li>
+              <li>Integrated REST APIs, reducing page load times by 40%</li>
+              <li>Created automated product recommendation engine using ML algorithms</li>
             </ul>
           </div>
         </motion.div>
