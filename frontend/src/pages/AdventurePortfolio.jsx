@@ -488,7 +488,7 @@ const EducationPage = () => (
         <motion.div className="edu-item" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}>
           <h3>MS in Computer Science</h3>
           <p className="edu-school">California State University, Sacramento</p>
-          <p className="edu-date">Expected 2025</p>
+          <p className="edu-date">2023 - 2025</p>
         </motion.div>
         <motion.div className="edu-item" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>
           <h3>Bachelor's in Computer Science</h3>
