@@ -517,11 +517,12 @@ const EducationPage = () => (
 // Contact Page
 const ContactPage = () => (
   <div className="page contact-page">
+    <div className="campfire-glow"></div>
     <motion.div
-      className="page-character"
-      initial={{ scale: 0 }}
-      animate={{ scale: 1 }}
-      transition={{ duration: 1, ease: 'easeOut' }}
+      className="page-character-camp"
+      initial={{ scale: 0, rotate: -180 }}
+      animate={{ scale: 1, rotate: 0 }}
+      transition={{ duration: 1.5, ease: 'easeOut' }}
     >
       ⛺
     </motion.div>
@@ -531,32 +532,49 @@ const ContactPage = () => (
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.4, duration: 0.8 }}
     >
-      <h2 className="page-title">Base Camp</h2>
-      <p className="page-subtitle">Let's Connect</p>
+      <motion.h2 
+        className="page-title"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.6 }}
+      >
+        🏕️ Journey's End - Base Camp
+      </motion.h2>
+      <motion.p 
+        className="page-subtitle"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.7 }}
+      >
+        The adventure was incredible! Let's connect for the next expedition
+      </motion.p>
       <div className="contact-info-center">
         <motion.div 
           className="contact-detail-large"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.8 }}
+          whileHover={{ scale: 1.05 }}
         >
           <Mail size={32} />
           <a href="mailto:kamireddy.jagadeeswar@gmail.com">kamireddy.jagadeeswar@gmail.com</a>
         </motion.div>
         <motion.div 
           className="contact-detail-large"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.9 }}
+          whileHover={{ scale: 1.05 }}
         >
           <Phone size={32} />
           <a href="tel:+17373425993">+1 737-342-5993</a>
         </motion.div>
         <motion.div 
           className="contact-detail-large"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1.0 }}
+          whileHover={{ scale: 1.05 }}
         >
           <MapPin size={32} />
           <span>Dublin, CA</span>
@@ -564,18 +582,44 @@ const ContactPage = () => (
       </div>
       <motion.div 
         className="social-links-large"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.9 }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.1 }}
       >
-        <a href="https://linkedin.com/in/jkamireddy" target="_blank" rel="noopener noreferrer" className="social-button">
+        <motion.a 
+          href="https://linkedin.com/in/jkamireddy" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="social-button"
+          whileHover={{ scale: 1.1, y: -5 }}
+          whileTap={{ scale: 0.95 }}
+        >
           <Linkedin size={32} />
           <span>LinkedIn</span>
-        </a>
-        <a href="https://github.com/jkamireddy" target="_blank" rel="noopener noreferrer" className="social-button">
+        </motion.a>
+        <motion.a 
+          href="https://github.com/jkamireddy" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="social-button"
+          whileHover={{ scale: 1.1, y: -5 }}
+          whileTap={{ scale: 0.95 }}
+        >
           <Github size={32} />
           <span>GitHub</span>
-        </a>
+        </motion.a>
+      </motion.div>
+      <motion.div 
+        className="journey-complete"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.3 }}
+      >
+        <div className="completion-badge">
+          <span className="badge-icon">🎯</span>
+          <span className="badge-text">Portfolio Journey Complete</span>
+        </div>
+        <p className="thank-you-text">Thank you for exploring my adventure! Looking forward to connecting.</p>
       </motion.div>
     </motion.div>
   </div>
