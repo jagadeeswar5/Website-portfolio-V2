@@ -886,7 +886,8 @@
     font-size: 120px;
   }
   
-  .page-character {
+  .page-character,
+  .page-character-camp {
     font-size: 80px;
   }
   
@@ -896,8 +897,23 @@
     padding: 30px;
   }
   
+  .content-box-contact .page-title {
+    font-size: 2rem;
+  }
+  
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .social-links-large {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .social-button {
+    width: 100%;
+    justify-content: center;
+  }
   }
   
   .social-links-large {
