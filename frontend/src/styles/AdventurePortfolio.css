@@ -892,11 +892,6 @@
     width: 100%;
     justify-content: center;
   }
-  }
-  
-  .social-links-large {
-    flex-direction: column;
-  }
   
   .nav-indicators {
     right: 15px;
