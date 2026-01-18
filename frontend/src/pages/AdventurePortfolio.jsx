@@ -526,41 +526,57 @@ const ContactPage = () => (
       ⛺
     </motion.div>
     <motion.div
-      className="content-box"
+      className="content-box-contact"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.4, duration: 0.8 }}
     >
       <h2 className="page-title">Base Camp</h2>
       <p className="page-subtitle">Let's Connect</p>
-      <div className="contact-grid">
-        <div className="contact-info-box">
-          <h3>Get In Touch</h3>
-          <div className="contact-detail">
-            <Mail size={24} />
-            <span>kamireddy.jagadeeswar@gmail.com</span>
-          </div>
-          <div className="contact-detail">
-            <Phone size={24} />
-            <span>+1 737-342-5993</span>
-          </div>
-          <div className="contact-detail">
-            <MapPin size={24} />
-            <span>Sacramento, CA</span>
-          </div>
-          <div className="social-icons">
-            <a href="https://linkedin.com/in/jkamireddy" target="_blank" rel="noopener noreferrer"><Linkedin size={28} /></a>
-            <a href="https://github.com/jkamireddy" target="_blank" rel="noopener noreferrer"><Github size={28} /></a>
-            <a href="#"><Globe size={28} /></a>
-          </div>
-        </div>
-        <form className="contact-form-box">
-          <input type="text" placeholder="Your Name" className="form-field" />
-          <input type="email" placeholder="Your Email" className="form-field" />
-          <textarea placeholder="Your Message" rows="4" className="form-field"></textarea>
-          <button type="submit" className="submit-btn">Send Message</button>
-        </form>
+      <div className="contact-info-center">
+        <motion.div 
+          className="contact-detail-large"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+        >
+          <Mail size={32} />
+          <a href="mailto:kamireddy.jagadeeswar@gmail.com">kamireddy.jagadeeswar@gmail.com</a>
+        </motion.div>
+        <motion.div 
+          className="contact-detail-large"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+        >
+          <Phone size={32} />
+          <a href="tel:+17373425993">+1 737-342-5993</a>
+        </motion.div>
+        <motion.div 
+          className="contact-detail-large"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+        >
+          <MapPin size={32} />
+          <span>Dublin, CA</span>
+        </motion.div>
       </div>
+      <motion.div 
+        className="social-links-large"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.9 }}
+      >
+        <a href="https://linkedin.com/in/jkamireddy" target="_blank" rel="noopener noreferrer" className="social-button">
+          <Linkedin size={32} />
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/jkamireddy" target="_blank" rel="noopener noreferrer" className="social-button">
+          <Github size={32} />
+          <span>GitHub</span>
+        </a>
+      </motion.div>
     </motion.div>
   </div>
 );
