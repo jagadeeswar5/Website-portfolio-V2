@@ -725,15 +725,6 @@
   box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
   border-color: #ff6b35;
 }
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
-}
-
-.submit-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
-}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -754,16 +745,17 @@
   }
   
   .content-box,
-  .content-box-wide {
+  .content-box-wide,
+  .content-box-contact {
     padding: 30px;
-  }
-  
-  .contact-grid {
-    grid-template-columns: 1fr;
   }
   
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .social-links-large {
+    flex-direction: column;
   }
   
   .nav-indicators {
