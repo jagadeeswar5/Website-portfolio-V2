@@ -339,10 +339,11 @@ const ExperiencePage = () => (
         <motion.div className="exp-item" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }}>
           <div className="exp-marker"></div>
           <div className="exp-content">
-            <h3>Software Dev Intern</h3>
+            <h3>Software Dev Associate</h3>
             <p className="exp-company">Critical River Inc</p>
-            <p className="exp-date">Jul - Dec 2024</p>
+            <p className="exp-date">Dec 2024 - Present</p>
             <ul>
+              <li>Promoted to full-time position, continuing development of enterprise microservices</li>
               <li><strong>Templates Manager Service:</strong> Developed FastAPI microservice for template management with async PostgreSQL, improving performance and scalability</li>
               <li>Built cloud storage integration and data processing capabilities for handling large datasets</li>
               <li>Implemented background task processing to optimize API response times</li>
@@ -351,6 +352,21 @@ const ExperiencePage = () => (
               <li>Developed notification system and analytics APIs for real-time financial metrics and transaction tracking</li>
               <li><strong>Jira Dashboard API Service:</strong> Developed FastAPI service for issue analytics processing large datasets from data warehouse, with optimized filtering architecture</li>
               <li>Upgraded service infrastructure and implemented robust query service with fault tolerance patterns for high availability</li>
+            </ul>
+          </div>
+        </motion.div>
+        <motion.div className="exp-item" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.65 }}>
+          <div className="exp-marker"></div>
+          <div className="exp-content">
+            <h3>Software Dev Intern</h3>
+            <p className="exp-company">Critical River Inc</p>
+            <p className="exp-date">Jul - Dec 2024</p>
+            <ul>
+              <li>Developed FastAPI microservices for enterprise template management and procurement systems</li>
+              <li>Built cloud storage integration and implemented async PostgreSQL operations</li>
+              <li>Contributed to P2P Dashboard Backend with OAuth 2.0 authentication and JWT implementation</li>
+              <li>Developed analytics APIs and notification systems for real-time financial tracking</li>
+              <li>Successfully converted to full-time position in December 2024</li>
             </ul>
           </div>
         </motion.div>
